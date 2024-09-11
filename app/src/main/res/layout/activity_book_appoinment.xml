@@ -27,7 +27,7 @@
         android:layout_height="62dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/text_box_shape_blue"
-        android:drawableLeft="@drawable/ic_pass_blue"
+        android:drawableLeft="@drawable/ic_phone_blue"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Contact Number"
@@ -48,7 +48,7 @@
         android:layout_height="62dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/text_box_shape_blue"
-        android:drawableLeft="@drawable/ic_pass_blue"
+        android:drawableLeft="@drawable/ic_fees_blue"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Fees"
@@ -69,7 +69,7 @@
         android:layout_height="62dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/text_box_shape_blue"
-        android:drawableLeft="@drawable/ic_email_blue"
+        android:drawableLeft="@drawable/ic_map"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Address"
@@ -112,18 +112,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito"
-        android:text="Time"
+        android:text="Select Date"
         android:textColor="@color/Light_blue"
         android:textSize="20dp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="725dp" />
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="760dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito"
+        android:text="Select Time"
+        android:textColor="@color/Light_blue"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="760dp" />
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="397dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="416dp"
+        android:layout_width="371dp"
+        android:layout_height="60dp"
         android:background="@drawable/btn_make_appoinment"
         android:text=""
         android:textColor="@color/white"
@@ -131,8 +142,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextRegConfirmPassword"
         app:strokeColor="@color/white"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="907dp" />
+
+    <Button
+        android:id="@+id/buttonAppDate"
+        style="?android:spinnerStyle"
+        android:layout_width="161dp"
+        android:layout_height="60dp"
+        android:text="01/12/2024"
+        android:textSize="20dp"
+        android:fontFamily="@font/rubik"
+        android:textColor="@color/Light_blue"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="814dp" />
+
+    <Button
+        android:id="@+id/buttonAppTime"
+        style="?android:spinnerStyle"
+        android:layout_width="161dp"
+        android:layout_height="60dp"
+        android:fontFamily="@font/rubik"
+        android:text="01:00"
+        android:textColor="@color/Light_blue"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="814dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
