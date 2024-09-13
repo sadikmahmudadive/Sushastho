@@ -3,6 +3,7 @@ package com.example.sushastho;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -80,14 +81,6 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             return insets;
         });
 
-        backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DoctorDetailsActivity.this, FindDoctorActivity.class));
-            }
-        });
-
         setContentView(R.layout.activity_doctor_details);
         tv = findViewById(R.id.textViewDoctorDetailTitle);
         Intent intent = getIntent();
@@ -107,17 +100,29 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         }
 
         list = new ArrayList();
-        for (int i = 0; i < doctor_details.length; i++) {
+        for (String[] doctorDetail : doctor_details) {
             item = new HashMap<String, String>();
-            item.put("line1", doctor_details[i][0]);
-            item.put("line2", doctor_details[i][1]);
-            item.put("line3", doctor_details[i][2]);
-            item.put("line4", doctor_details[i][3]);
-            item.put("line5", "Cons Fees :"+ doctor_details[i][4]+"/-");
+            item.put("line1", doctorDetail[0]);
+            item.put("line2", doctorDetail[1]);
+            item.put("line3", doctorDetail[2]);
+            item.put("line4", "Cons Fees :" + doctorDetail[4] + "/-");
             list.add(item);
         }
         simpleAdapter = new SimpleAdapter(this, list,R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4", "line5"}, new int []{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
         ListView listView = findViewById(R.id.listViewDoctorDetail);
         listView.setAdapter(simpleAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()  {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(DoctorDetailsActivity.this, BookAppoinmentActivity.class);
+                intent.putExtra("text1", title);
+                intent.putExtra("text2", doctor_details[i][0]);
+                intent.putExtra("text3", doctor_details[i][1]);
+                intent.putExtra("text4", doctor_details[i][2]);
+                intent.putExtra("text5", doctor_details[i][4]);
+                startActivity(intent);
+            }
+        });
     }
 }
