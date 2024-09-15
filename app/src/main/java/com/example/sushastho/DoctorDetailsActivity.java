@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DoctorDetailsActivity extends AppCompatActivity {
-    private String[][] doctor_details1 =
+    private final String[][] doctor_details1 =
             {
                     {"Doctor name: Dr. Jude Bellinghum", "Hospital address: 123 Main St, Anytown, USA", "Mobile number: 912-345-6789", "Time: 10:00 AM - 5:00 PM", "Fees: $50"},
                     {"Doctor name: Dr. Herry Kane", "Hospital address: 456 Elm St, Anytown, USA", "Mobile number: 987-654-3210", "Time: 9:00 AM - 6:00 PM", "Fees: $75"},
@@ -28,7 +28,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                     {"Doctor name: Dr. Alexander isak", "Hospital address: 234 Maple St, Anytown, USA", "Mobile number: 123-456-7890", "Time: 7:00 AM - 8:00 PM", "Fees: $"}
             };
 
-    private String[][] doctor_details2 =
+    private final String[][] doctor_details2 =
             {
                     {"Doctor name: Dr. Jude Bellinghum", "Hospital address: 123 Main St, Anytown, USA", "Mobile number: 912-345-6789", "Time: 10:00 AM - 5:00 PM", "Fees: $50"},
                     {"Doctor name: Dr. Herry Kane", "Hospital address: 456 Elm St, Anytown, USA", "Mobile number: 987-654-3210", "Time: 9:00 AM - 6:00 PM", "Fees: $75"},
@@ -37,7 +37,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                     {"Doctor name: Dr. Alexander isak", "Hospital address: 234 Maple St, Anytown, USA", "Mobile number: 123-456-7890", "Time: 7:00 AM - 8:00 PM", "Fees: $"}
             };
 
-    private String[][] doctor_details3 =
+    private final String[][] doctor_details3 =
             {
                     {"Doctor name: Dr. Jude Bellinghum", "Hospital address: 123 Main St, Anytown, USA", "Mobile number: 912-345-6789", "Time: 10:00 AM - 5:00 PM", "Fees: $50"},
                     {"Doctor name: Dr. Herry Kane", "Hospital address: 456 Elm St, Anytown, USA", "Mobile number: 987-654-3210", "Time: 9:00 AM - 6:00 PM", "Fees: $75"},
@@ -46,7 +46,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                     {"Doctor name: Dr. Alexander isak", "Hospital address: 234 Maple St, Anytown, USA", "Mobile number: 123-456-7890", "Time: 7:00 AM - 8:00 PM", "Fees: $"}
             };
 
-    private String[][] doctor_details4 =
+    private final String[][] doctor_details4 =
             {
                     {"Doctor name: Dr. Jude Bellinghum", "Hospital address: 123 Main St, Anytown, USA", "Mobile number: 912-345-6789", "Time: 10:00 AM - 5:00 PM", "Fees: $50"},
                     {"Doctor name: Dr. Herry Kane", "Hospital address: 456 Elm St, Anytown, USA", "Mobile number: 987-654-3210", "Time: 9:00 AM - 6:00 PM", "Fees: $75"},
@@ -55,7 +55,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                     {"Doctor name: Dr. Alexander isak", "Hospital address: 234 Maple St, Anytown, USA", "Mobile number: 123-456-7890", "Time: 7:00 AM - 8:00 PM", "Fees: $"}
             };
 
-    private String[][] doctor_details5 =
+    private final String[][] doctor_details5 =
             {
                     {"Doctor name: Dr. Jude Bellinghum", "Hospital address: 123 Main St, Anytown, USA", "Mobile number: 912-345-6789", "Time: 10:00 AM - 5:00 PM", "Fees: $50"},
                     {"Doctor name: Dr. Herry Kane", "Hospital address: 456 Elm St, Anytown, USA", "Mobile number: 987-654-3210", "Time: 9:00 AM - 6:00 PM", "Fees: $75"},
@@ -89,7 +89,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
         if (title.compareTo("Physician") == 0) {
             doctor_details = doctor_details1;
-        }else if (title.compareTo("Dentist") == 0) {
+        } else if (title.compareTo("Dentist") == 0) {
             doctor_details = doctor_details2;
         } else if (title.compareTo("Surgeon") == 0) {
             doctor_details = doctor_details3;
@@ -100,12 +100,13 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         }
 
         list = new ArrayList();
-        for (String[] doctorDetail : doctor_details) {
+        for (int i = 0; i < doctor_details.length; i++) {
             item = new HashMap<String, String>();
-            item.put("line1", doctorDetail[0]);
-            item.put("line2", doctorDetail[1]);
-            item.put("line3", doctorDetail[2]);
-            item.put("line4", "Cons Fees :" + doctorDetail[4] + "/-");
+            item.put("line1", doctor_details[i][0]);
+            item.put("line2", doctor_details[i][1]);
+            item.put("line3", doctor_details[i][2]);
+            item.put("line4", doctor_details[i][3]);
+            item.put("line5", "Cons Fees :" + doctor_details[i][4] + "BDT");
             list.add(item);
         }
         simpleAdapter = new SimpleAdapter(this, list,R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4", "line5"}, new int []{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
